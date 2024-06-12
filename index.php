@@ -211,15 +211,15 @@
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <p class="text-white text-center">Jan Novák</p>
-                        <p class="text-white w-75 mx-auto ">"Neutopia Kapela je skvělá! Jejich hudba je plná energie a originality. Každý koncert je nezapomenutelný zážitek."</p>
+                        <p class="text-white w-75 mx-auto ">"Neutopia je skvělá! Jejich hudba je plná energie a originality. Každý koncert je nezapomenutelný zážitek."</p>
                       </div>
                       <div class="carousel-item">
                         <p class="text-white text-center">Petra Svobodová</p>
-                        <p class="text-white w-75 mx-auto">"Jsem velký fanoušek Neutopia Kapela. Jejich skladby jsou chytlavé a texty jsou hluboké a inspirující."</p>
+                        <p class="text-white w-75 mx-auto">"Jsem velký fanoušek Neutopie. Jejich skladby jsou chytlavé a texty jsou hluboké a inspirující."</p>
                       </div>
                       <div class="carousel-item">
                         <p class="text-white text-center">Tomáš Dvořák</p>
-                        <p class="text-white  w-75 mx-auto">"Neutopia Kapela je jedna z nejlepších kapel, které jsem kdy slyšel. Jejich talent a vášeň pro hudbu je cítit v každé písni.!"</p>
+                        <p class="text-white  w-75 mx-auto">"Neutopia je jedna z nejlepších kapel, které jsem kdy slyšel. Jejich talent a vášeň pro hudbu je cítit v každé písni.!"</p>
                       </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
