@@ -12,7 +12,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/my-styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body class="bg-dark">
         <?php
             $navPath = __DIR__ . '/include/navigation.php';
             if (file_exists($navPath) && is_readable($navPath)) {
@@ -23,7 +23,7 @@
         ?>
 
         <!-- Page Content-->
-        <div class="container px-4 px-lg-5">
+        <div class="container mt-10 text-white-50 px-4 px-lg-5 mt-10">
             <h2>Registrační formulář</h2>
             <form action="userRegisterSaveToDb.php" method="POST">
                 <div class="mb-3">
@@ -54,7 +54,7 @@
             </form>
         </div>
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="py-5">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->

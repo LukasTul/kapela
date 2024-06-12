@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/my-styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body class="bg-dark">
         <?php
             $navPath = __DIR__ . '/include/navigation.php';
             if (file_exists($navPath) && is_readable($navPath)) {
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
 
         <!-- Page Content-->
-        <div class="container px-4 px-lg-5">
+        <div class="container text-white-50 px-4 px-lg-5 mt-5">
             <h2>Přihlášení uživatele</h2>
             <form action="" method="POST">
                 <div class="mb-3">
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="sticky-footer py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Neutopia Kapela 2024</p></div>
         </footer>
         <!-- Bootstrap core JS-->

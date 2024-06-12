@@ -7761,6 +7761,10 @@ textarea.form-control-lg {
   margin-top: 3rem !important;
 }
 
+.mt-10 {
+  margin-top: 6rem !important;
+}
+
 .mt-auto {
   margin-top: auto !important;
 }
@@ -11200,4 +11204,9 @@ body {
 
 .footer {
   padding: 5rem 0;
+}
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
