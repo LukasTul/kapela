@@ -12,7 +12,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container-fluid px-4 px-lg-5">
-            <a class="navbar-brand" href="#page-top">Neutopia</a>
+            <a class="navbar-brand" href="./index.php">Neutopia</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -27,10 +27,10 @@
                     <li class="nav-item"><a class="nav-link" href="userRegisterForm.php">Registrace</a></li>
                     <?php
                     if (isset($_SESSION['user_nickname'])) {
-                        $navBooksString = '<li class="nav-item"><a class="nav-link" href="bookForm.php">Nová kniha</a></li>
-                                           <li class="nav-item"><a class="nav-link" href="booksView.php">Zobrazení knih</a></li>
-                                           <li class="nav-item"><a class="nav-link" href="booksEdit.php">Editace knih</a></li>';
-                        echo $navBooksString;
+                        $navKomentsString = '<li class="nav-item"><a class="nav-link" href="komentForm.php">Nový komentář</a></li>
+                                           <li class="nav-item"><a class="nav-link" href="komentsView.php">Zobrazení komentářů</a></li>
+                                           <li class="nav-item"><a class="nav-link" href="komentsEdit.php">Editace komentářů</a></li>';
+                        echo $navKomentsString;
                     }    
                     ?>
                     <li class="nav-item"><a class="nav-link" href="userLoginForm.php">Přihlášení</a></li>
