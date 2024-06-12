@@ -8,39 +8,36 @@
         $user_display = 'nepřihlášen';
     }
 ?>
-
-
-
-<!-- Responsive navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container px-5">
-        <a class="navbar-brand" href="index.php">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-                <!-- <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Services</a></li> -->
-                <li class="nav-item"><a class="nav-link" href="userRegisterForm.php">Registrace</a></li>
-                <li class="nav-item"><a class="nav-link" href="dataTablesUkazka.php">DataTables</a></li>
-                
-                <?php
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top">Neutopia</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <!-- <li class="nav-item"><a class="nav-link" href="#about">Jak to vzniklo?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#koncerty">Koncerty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#diskografie">Diskografie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#poradatele">Pro pořadatele</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                    <li class="nav-item"><a class="nav-link" href="userRegisterForm.php">Registrace</a></li>
+                    <?php
                     if (isset($_SESSION['user_nickname'])) {
                         $navBooksString = '<li class="nav-item"><a class="nav-link" href="bookForm.php">Nová kniha</a></li>
                                            <li class="nav-item"><a class="nav-link" href="booksView.php">Zobrazení knih</a></li>
                                            <li class="nav-item"><a class="nav-link" href="booksEdit.php">Editace knih</a></li>';
                         echo $navBooksString;
                     }    
-                ?>
-                
-
-
-                <li class="nav-item"><a class="nav-link" href="userLoginForm.php">Přihlášení</a></li>
-                <li class="nav-item"><a class="nav-link" href="userLogout.php">Odhlášení</a></li>
-                
-                <li class="nav-item"><span class="nav-link text-<?php echo isset($_SESSION['user_nickname']) ? 'success' : 'danger'; ?>"><?php echo $user_display; ?></span></li>
-            </ul>
+                    ?>
+                    <li class="nav-item"><a class="nav-link" href="userLoginForm.php">Přihlášení</a></li>
+                    <li class="nav-item"><a class="nav-link" href="userLogout.php">Odhlášení</a></li>
+                    <li class="nav-item"><span class="nav-link text-<?php echo isset($_SESSION['user_nickname']) ? 'success' : 'danger'; ?>"><?php echo $user_display; ?></span></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</body>

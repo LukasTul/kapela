@@ -33,7 +33,7 @@ class Database {
 }
 
 // Vytvoření instance třídy Database
-$db = new Database("localhost", "root", "", "tomas_zizka");
+$db = new Database("localhost", "root", "", "kapela");
 
 // Připojení k databázi
 $conn = $db->connect();

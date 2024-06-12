@@ -16,27 +16,15 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
-        <body id="page-top">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-                <div class="container-fluid px-4 px-lg-5">
-                    <a class="navbar-brand" href="#page-top">Neutopia</a>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        Menu
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="#about">Jak to vzniklo?</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#koncerty">Koncerty</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#diskografie">Diskografie</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#poradatele">Pro pořadatele</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </body>
+        <!-- Navigation-->
+        <?php
+            $navPath = __DIR__ . '/include/navigation.php';
+            if (file_exists($navPath) && is_readable($navPath)) {
+                include $navPath;
+            } else {
+                echo 'Navigace není dostupná.';
+            }
+        ?>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
