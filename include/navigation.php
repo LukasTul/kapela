@@ -31,7 +31,13 @@
                                            <li class="nav-item"><a class="nav-link" href="komentsView.php">Zobrazení komentářů</a></li>
                                            <li class="nav-item"><a class="nav-link" href="komentsEdit.php">Editace komentářů</a></li>';
                         echo $navKomentsString;
-                    }    
+                    }
+                    if (isset($_SESSION['user_admin']) && $_SESSION['user_admin'] == 1) {
+                        echo '<li class="nav-item"><a class="nav-link" href="usersEdit.php">Editace profilů</a></li>';
+                    } 
+                    else {
+                        echo '<li class="nav-item"><a class="nav-link" href="userEdit.php">Editace profilu</a></li>';
+                    }
                     ?>
                     <li class="nav-item"><a class="nav-link" href="userLoginForm.php">Přihlášení</a></li>
                     <li class="nav-item"><a class="nav-link" href="userLogout.php">Odhlášení</a></li>

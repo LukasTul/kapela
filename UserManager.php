@@ -25,6 +25,7 @@ class UserManager {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_nickname'] = $user['nickname'];
                 $_SESSION['user_email'] = $user['email'];
+                $_SESSION['user_admin'] = $user['admin'];
                 // Přesměrování na domovskou stránku nebo jinou požadovanou stránku po přihlášení
                 header("Location: index.php"); // Uprav 'index.php' podle potřeby
                 exit();
