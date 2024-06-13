@@ -75,7 +75,6 @@
                         <th>Příjmení</th>
                         <th>Přezdívka</th>
                         <th>Email</th>
-                        <th>Heslo</th>
                         <th>Admin</th>
                     </tr>
                 </thead>
@@ -87,10 +86,9 @@
                             <td><?= htmlspecialchars($user['last_name']) ?></td>
                             <td><?= htmlspecialchars($user['nickname']) ?></td>
                             <td><?= htmlspecialchars($user['email']) ?></td>
-                            <td><?= htmlspecialchars($user['password']) ?></td>
                             <td><?= htmlspecialchars($user['admin']) ?></td>
                             <td>
-                                <a href="userEditItem.php?id=<?= $user['user_id'] ?>" class="btn btn-primary">Edit</a>
+                                <a href="usersEditItem.php?user_id=<?= $user['user_id'] ?>" class="btn btn-primary">Edit</a>
                                 <form action="usersEdit.php" method="post" style="display:inline;">
                                 <input type="hidden" name="user_id" value="<?= $user['user_id'] ?>">
                                 <button type="submit" name="delete" class="btn btn-danger mt-2">Delete</button>

@@ -35,8 +35,11 @@
                     if (isset($_SESSION['user_admin']) && $_SESSION['user_admin'] == 1) {
                         echo '<li class="nav-item"><a class="nav-link" href="usersEdit.php">Editace profilů</a></li>';
                     } 
+                    
                     else {
-                        echo '<li class="nav-item"><a class="nav-link" href="userEdit.php">Editace profilu</a></li>';
+                        if (isset($_SESSION['user_id'])) {
+                            echo '<li class="nav-item"><a class="nav-link" href="usersEditItem.php?user_id=' . $_SESSION['user_id'] . '">Editace profilu</a></li>';
+                        }
                     }
                     ?>
                     <li class="nav-item"><a class="nav-link" href="userLoginForm.php">Přihlášení</a></li>
