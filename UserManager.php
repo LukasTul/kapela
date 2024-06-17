@@ -22,7 +22,7 @@ class UserManager {
             // Ověření hesla
             if (password_verify($password, $user['password'])) {
                 // Heslo je správné, uložení informací o uživateli do session
-                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['user_nickname'] = $user['nickname'];
                 $_SESSION['user_email'] = $user['email'];
                 $_SESSION['user_admin'] = $user['admin'];

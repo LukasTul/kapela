@@ -7,6 +7,12 @@
     } else {
         $user_display = 'nepřihlášen';
     }
+    if (isset($_SESSION['user_id'])) {
+        $userId = $_SESSION['user_id'];
+        // Now you can use $userId
+    } else {
+        echo("User ID is not set in the session.");
+    }
 ?>
 <body id="page-top">
     <!-- Navigation-->
@@ -33,11 +39,11 @@
                         echo $navKomentsString;
                     }
                     if (isset($_SESSION['user_admin']) && $_SESSION['user_admin'] == 1) {
-                        echo '<li class="nav-item"><a class="nav-link" href="usersEdit.php">Editace profilů</a></li>';
+                        echo '<li class="nav-item"><a class="nav-link" href="usersEdit.php">Editace profilů</a></li>';¨
                     } 
                     
                     else {
-                        if (isset($_SESSION['user_id'])) {
+                        if (isset($_SESSION['user_nickname'])) {
                             echo '<li class="nav-item"><a class="nav-link" href="usersEditItem.php?user_id=' . $_SESSION['user_id'] . '">Editace profilu</a></li>';
                         }
                     }
