@@ -24,6 +24,9 @@
             } else {
                 echo 'Navigace není dostupná.';
             }
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
         ?>
         <!-- Masthead-->
         <header class="masthead">
@@ -175,7 +178,15 @@
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
                         <h2 class="text-white mb-5">Jak se ti líbí naše tvorba?</h2>
-                        <a class="btn btn-primary" id="submitButton" href="komentForm.php">Tvůj názor</a>
+                        <?php
+                        if (isset($_SESSION['user_nickname'])){
+                            // User is logged in, link to komentForm.php
+                            echo '<a class="btn btn-primary" id="submitButton" href="komentForm.php">Tvůj názor</a>';
+                        } else {
+                            // User is not logged in, link to userLogin.php
+                            echo '<a class="btn btn-primary" id="submitButton" href="userLoginForm.php">Tvůj názor</a>';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
