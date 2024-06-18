@@ -33,7 +33,6 @@
                     if (isset($_SESSION['user_nickname'])) {
                         $navKomentsString = '<li class="nav-item"><a class="nav-link" href="komentForm.php">Nový komentář</a></li>
                                            <li class="nav-item"><a class="nav-link" href="komentsView.php">Zobrazení komentářů</a></li>
-                                           <li class="nav-item"><a class="nav-link" href="komentsEdit.php">Editace komentářů</a></li>
                                            <li class="nav-item"><a class="nav-link" href="userLogout.php">Odhlášení</a></li>';
                         echo $navKomentsString;
                     }
@@ -42,7 +41,8 @@
                          <li class="nav-item"><a class="nav-link" href="userRegisterForm.php">Registrace</a></li>';
                     }
                     if (isset($_SESSION['user_admin']) && $_SESSION['user_admin'] == 1) {
-                        echo '<li class="nav-item"><a class="nav-link" href="usersEdit.php">Editace profilů</a></li>';
+                        echo '<li class="nav-item"><a class="nav-link" href="komentsEdit.php">Editace komentářů</a></li>
+                            <li class="nav-item"><a class="nav-link" href="usersEdit.php">Editace profilů</a></li>';
                     } 
                     else {
                         if (isset($_SESSION['user_nickname'])) {

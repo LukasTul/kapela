@@ -175,7 +175,7 @@
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
                         <h2 class="text-white mb-5">Jak se ti líbí naše tvorba?</h2>
-                        <button class="btn btn-primary" id="submitButton" type="submit" href="">Tvůj názor</button>
+                        <a class="btn btn-primary" id="submitButton" href="komentForm.php">Tvůj názor</a>
                     </div>
                 </div>
             </div>

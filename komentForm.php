@@ -46,6 +46,12 @@
                     </select>
                 </div>    
                 <div class="mb-3">
+                <label for="styl" class="form-label">Tvůj oblíbený styl:</label>
+                <select class="form-select" id="styl" name="styl">
+                    <!-- Options will be populated based on the selected hudebni_zanr -->
+                </select>
+                </div>
+                <div class="mb-3">
                     <label for="zazitek_koncert" class="form-label">Jak se ti líbil náš poslední koncert?</label>
                     <textarea class="form-control" id="zazitek_koncert" name="zazitek_koncert" rows="3"></textarea>
                 </div>
@@ -92,6 +98,38 @@
                     event.preventDefault(); // Zabránit odeslání formuláře
                 }
             };
+                function updateStylOptions() {
+                var hudebni_zanr = document.getElementById('hudebni_zanr').value;
+                var stylSelect = document.getElementById('styl');
+
+                // Clear existing options
+                stylSelect.innerHTML = '';
+
+                var options = [];
+
+                // Define the options based on the selected hudebni_zanr
+                if (hudebni_zanr === 'rock') {
+                    options = ['Hard Rock', 'Soft Rock', 'Alternative Rock'];
+                } else if (hudebni_zanr === 'pop') {
+                    options = ['Dance Pop', 'Pop Rock', 'Teen Pop'];
+                } else if (hudebni_zanr === 'jazz') {
+                    options = ['Smooth Jazz', 'Free Jazz', 'Bebop'];
+                } else if (hudebni_zanr === 'elektronicka') {
+                    options = ['House', 'Techno', 'Trance'];
+                } else if (hudebni_zanr === 'klasicka') {
+                    options = ['Symphony', 'Sonata', 'Concerto'];
+                }
+
+                // Create and append the options
+                for (var i = 0; i < options.length; i++) {
+                    var option = document.createElement('option');
+                    option.value = options[i];
+                    option.text = options[i];
+                    stylSelect.appendChild(option);
+                }
+            }
+            // Call updateStylOptions when hudebni_zanr changes
+            document.getElementById('hudebni_zanr').onchange = updateStylOptions;   
         </script>
     </body>
 </html>
