@@ -64,9 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/my-styles.css" rel="stylesheet" />
 </head>
-<body>
+<body class="bg-dark text-white-50">
     <div class="container">
-        <h2>Edit Coment</h2>
+        <h2 class="text-white">Editace profilu</h2>
         <form action="usersEditItem.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="user_id" value="<?= htmlspecialchars($user['user_id']) ?>">
             <div class="mb-3">
@@ -91,6 +91,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <button type="submit" class="btn btn-primary mb-3">Aktualizovat</button>
         </form>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy;  Neutopia kapela 2024</p></div>
+        </footer>
     </div>
 </body>
 </html>

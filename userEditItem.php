@@ -17,9 +17,9 @@ class UserModel {
     }
 
     public function update($user_id, $first_name, $last_name, $nickname, $email) {
-        $query = "UPDATE users SET first_name = ?, last_name = ?, nickname = ?, email = ?, WHERE user_id = ?";
+        $query = "UPDATE users SET first_name = ?, last_name = ?, nickname = ?, email = ? WHERE user_id = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("sssssi", $first_name, $last_name, $nickname, $email, $user_id);
+        $stmt->bind_param("ssssi", $first_name, $last_name, $nickname, $email, $user_id);
         return $stmt->execute();
     }
 }
@@ -32,11 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $last_name = $_POST['last_name'];
     $nickname = $_POST['nickname'];
     $email = $_POST['email'];
-    $admin = intval($_POST['admin']);
 
    
     if ($userModel->update($user_id, $first_name, $last_name, $nickname, $email)) {
-        header('Location: usersEdit.php');
+        header('Location: index.php');
         exit;
     } else {
         echo "Failed to update user.";
@@ -64,10 +63,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/my-styles.css" rel="stylesheet" />
 </head>
-<body>
+<body class="bg-dark text-white-50">
     <div class="container">
-        <h2>Edit Coment</h2>
-        <form action="usersEditItem.php" method="post" enctype="multipart/form-data">
+        <h2 class="text-white">Editate profilu</h2>
+        <form action="userEditItem.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="user_id" value="<?= htmlspecialchars($user['user_id']) ?>">
             <div class="mb-3">
                 <label for="first_name" class="form-label">First Name</label>
@@ -87,6 +86,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <button type="submit" class="btn btn-primary mb-3">Aktualizovat</button>
         </form>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy;  Neutopia kapela 2024</p></div>
+        </footer>
     </div>
 </body>
 </html>

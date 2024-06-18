@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Stř 12. čen 2024, 21:23
+-- Vytvořeno: Úte 18. čen 2024, 11:11
 -- Verze serveru: 10.4.32-MariaDB
 -- Verze PHP: 8.0.30
 
@@ -45,7 +45,6 @@ CREATE TABLE `hodnoceni` (
 --
 
 INSERT INTO `hodnoceni` (`id`, `kapela_porovnani`, `oblibene_skladby`, `hudebni_zanr`, `zazitek_koncert`, `hodnoceni`, `doporuceni`, `obrazek`, `created_at`, `updated_at`) VALUES
-(3, 'Nirvana', 'some shit 5, Degradeing', 'pop', 'nice', 10, 'přátelé, kolegové', 'Neutopia baner (2).jpg', '2024-06-12 13:12:25', '2024-06-12 18:23:28'),
 (16, 'Radiohead', 'Creep', 'jazz', 'Bylo to velmi zajímavé', 10, '', 'assets/img-koment/20240430_151754.jpg', '2024-06-12 13:45:31', '2024-06-12 13:45:31'),
 (17, 'Kabát', 'Malá dáma, Burlaci', 'elektronicka', 'Krásně', 9, 'přátelé,rodina,kolegové', 'assets/img-koment/20240430_151754.jpg', '2024-06-12 14:27:53', '2024-06-12 14:27:53');
 
@@ -72,9 +71,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `nickname`, `email`, `password`, `admin`, `created_at`, `updated_at`) VALUES
-(10, 'Jan', 'Novak', 'jannovak', 'jan@novak.cz', '$2y$10$fB9CagLcRWS5fKgTQhYBAeojcyI6QbenT.cboLP1VsIQzJdD.FtXm', 0, '2024-06-12 09:48:43', '2024-06-12 09:48:43'),
-(16, 'sdfs', 'sdfs', 'sdfsdf', 'fsd@dsfsd', '$2y$10$vYrWk5u5K1mH0h0M.ChP8eE2TmhOAaijXlD00otY1CWWz4r.Fkpvu', 0, '2024-06-12 09:53:23', '2024-06-12 09:53:23'),
-(23, 'lukas', 'kunt', 'lukkunt', 'lukkunt@gmail.com', '$2y$10$qomOnDonrHZpAEn6WUY3MOAv/6z9icxlDA6hWeW.8UYA5DSXbGfKe', 0, '2024-06-12 09:57:36', '2024-06-12 09:57:36');
+(10, 'Jan', 'Novak', 'jannovak', 'jan@novak.cz', '$2y$10$fB9CagLcRWS5fKgTQhYBAeojcyI6QbenT.cboLP1VsIQzJdD.FtXm', 1, '2024-06-12 09:48:43', '2024-06-13 12:23:51'),
+(16, 'karel', 'sdfs', 'sdfsdf', 'karel@novak.cz', '$2y$10$vYrWk5u5K1mH0h0M.ChP8eE2TmhOAaijXlD00otY1CWWz4r.Fkpvu', 0, '2024-06-12 09:53:23', '2024-06-18 08:35:57'),
+(24, 'jakub', 'jezek', 'jezko', 'jakub@jezek.cz', '$2y$10$EDa/RkGXHeOLNVpU.FH3UuCrNur7GyHwZgw8UKCNF2Q/6dOfjng7G', 0, '2024-06-13 14:37:31', '2024-06-13 14:37:31'),
+(26, 'karolína', 'koutná', 'karolin', 'karolina@koutna.cz', '$2y$10$bcAj0Qblb/adAyRlrMoZsOb.cJ06dZw9TUCIVe2OKguAh9e9vUykm', 1, '2024-06-18 08:39:49', '2024-06-18 08:59:39');
 
 --
 -- Indexy pro exportované tabulky
@@ -108,7 +108,7 @@ ALTER TABLE `hodnoceni`
 -- AUTO_INCREMENT pro tabulku `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -23,12 +23,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
+                    <!--The older vesion of navigation-->
                     <!-- <li class="nav-item"><a class="nav-link" href="#about">Jak to vzniklo?</a></li>
                     <li class="nav-item"><a class="nav-link" href="#koncerty">Koncerty</a></li>
                     <li class="nav-item"><a class="nav-link" href="#diskografie">Diskografie</a></li>
                     <li class="nav-item"><a class="nav-link" href="#poradatele">Pro pořadatele</a></li> -->
                     <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
-                   
                     <?php
                     if (isset($_SESSION['user_nickname'])) {
                         $navKomentsString = '<li class="nav-item"><a class="nav-link" href="komentForm.php">Nový komentář</a></li>
@@ -46,7 +46,7 @@
                     } 
                     else {
                         if (isset($_SESSION['user_nickname'])) {
-                            echo '<li class="nav-item"><a class="nav-link" href="usersEditItem.php?user_id=' . $_SESSION['user_id'] . '">Editace profilu</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="userEditItem.php?user_id=' . $_SESSION['user_id'] . '">Editace profilu</a></li>';
                         }
                     }
                     ?>
