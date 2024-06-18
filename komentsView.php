@@ -33,8 +33,11 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
         <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/my-styles.css" rel="stylesheet" />
+        <link href="css/my-styles.css" rel="stylesheet" /> 
     </head>
     <body class="bg-dark text-white-50">
         <?php
@@ -49,7 +52,7 @@
         <!-- Page Content-->
         <div class="container px-4 px-lg-5 mt-10">
             <h2 class="mt-3 text-white">Výpis komentářů z tabulky "hodnocení"</h2>
-            <table class="table table-striped table-dark">
+            <table class="table table-striped table-dark text-white-50">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -89,5 +92,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <!-- Initialize DataTables -->
+        <script>
+            $(document).ready(function () {
+                $('.table').DataTable();
+            });
+        </script>
     </body>
 </html>

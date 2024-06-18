@@ -43,19 +43,25 @@
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Heslo:*</label>
+                <label for="password" class="form-label">Heslo:*</label>
+                <div class="input-group">
                     <input type="password" class="form-control" id="password" name="password" pattern="^(?=.*[A-Z])(?=.*\d).{8,}$" title="Heslo musí mít minimálně 8 znaků, alespoň jedno velké písmeno a alespoň jedno číslo." required>
+                    <button type="button" class="btn btn-primary btn-outline-secondary" onclick="togglePasswordVisibility('password')"><i class="bi bi-eye-slash" id="togglePassword"></i>🔑</button>
+                </div>
                 </div>
                 <div class="mb-3">
                     <label for="confirmPassword" class="form-label">Potvrzení hesla:*</label>
-                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                        <button type="button" class="btn btn-primary btn-outline-secondary" onclick="togglePasswordVisibility('confirmPassword')"><i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>🔑</button>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Registrovat</button>
             </form>
         </div>
         <!-- Footer-->
         <footer class="py-5">
-            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Neutopia kapela 2024</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -70,6 +76,19 @@
                     event.preventDefault(); // Zabránit odeslání formuláře
                 }
             };
+            function togglePasswordVisibility(id) {
+                var passwordField = document.getElementById(id);
+                var toggleIcon = document.getElementById('toggle' + id.charAt(0).toUpperCase() + id.slice(1));
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                    toggleIcon.classList.remove('bi-eye-slash');
+                    toggleIcon.classList.add('bi-eye');
+                } else {
+                    passwordField.type = "password";
+                    toggleIcon.classList.remove('bi-eye');
+                    toggleIcon.classList.add('bi-eye-slash');
+                }
+            }
         </script>
     </body>
 </html>

@@ -74,9 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/my-styles.css" rel="stylesheet" />
 </head>
-<body>
+<body class="bg-dark text-white-50">
     <div class="container">
-        <h2>Edit Coment</h2>
+        <h2 class="text-white">Edit Coment</h2>
         <form action="komentsEditItem.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= htmlspecialchars($koment['id']) ?>">
             <div class="mb-3">

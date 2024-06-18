@@ -1933,7 +1933,30 @@ progress {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
+.dataTables_wrapper {
+  color: white;
+  background: #2c3034;
+}
 
+.dataTables_wrapper .dataTables_paginate a {
+  color: white !important;
+}
+
+.dataTables_wrapper .dataTables_info {
+  color: white;
+}
+
+.dataTables_length label,
+.dataTables_filter label {
+  color: white;
+}
+
+.dataTables_length select,
+.dataTables_filter input {
+  background-color: #373b3e;
+  color: white;
+  border: none;
+}
 @media (max-width: 575.98px) {
   .table-responsive-sm {
     overflow-x: auto;
@@ -1964,6 +1987,7 @@ progress {
     -webkit-overflow-scrolling: touch;
   }
 }
+
 .form-label {
   margin-bottom: 0.5rem;
 }
