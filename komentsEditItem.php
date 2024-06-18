@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $koment = $comentModel->fetchById($id);
         $obrazek = $koment['obrazek'];
-    }
+    } 
 
     if ($comentModel->update($id, $kapela_porovnani, $oblibene_skladby, $hudebni_zanr,$styl, $zazitek_koncert, $hodnoceni, $doporuceni, $obrazek)) {
         header('Location: komentsEdit.php');

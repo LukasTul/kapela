@@ -28,7 +28,7 @@
     $komentModel = new KomentModel($conn);
     $koments = $komentModel->fetchAll();
 
-    // Mazání knihy
+    // Mazání komentáře
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete'])) {
         $id = intval($_POST['id']);
         if ($komentModel->delete($id)) {
