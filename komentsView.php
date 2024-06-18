@@ -59,6 +59,7 @@
                         <th>Kapela porovnání</th>
                         <th>Oblíbené skladby</th>
                         <th>Hudební žánr</th>
+                        <th>Styl</th>
                         <th>Zážitek z koncertu</th>
                         <th>Hodnocení</th>
                         <th>Doporučení</th>
@@ -72,6 +73,7 @@
                             <td><?= htmlspecialchars($koment['kapela_porovnani']) ?></td>
                             <td><?= htmlspecialchars($koment['oblibene_skladby']) ?></td>
                             <td><?= htmlspecialchars($koment['hudebni_zanr']) ?></td>
+                            <td><?= htmlspecialchars($koment['styl']) ?></td>
                             <td><?= htmlspecialchars($koment['zazitek_koncert']) ?></td>
                             <td><?= htmlspecialchars($koment['hodnoceni']) ?></td>
                             <td><?= htmlspecialchars($koment['doporuceni']) ?></td>

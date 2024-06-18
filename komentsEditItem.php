@@ -16,10 +16,10 @@ class ComentModel {
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public function update($id, $kapela_porovnani, $oblibene_skladby, $hudebni_zanr, $zazitek_koncert, $hodnoceni, $doporuceni, $obrazek) {
-        $query = "UPDATE hodnoceni SET kapela_porovnani = ?, oblibene_skladby = ?, hudebni_zanr = ?, zazitek_koncert = ?, hodnoceni = ?, doporuceni = ?, obrazek = ? WHERE id = ?";
+    public function update($id, $kapela_porovnani, $oblibene_skladby, $hudebni_zanr,$styl, $zazitek_koncert, $hodnoceni, $doporuceni, $obrazek) {
+        $query = "UPDATE hodnoceni SET kapela_porovnani = ?, oblibene_skladby = ?, hudebni_zanr = ?, styl = ?, zazitek_koncert = ?, hodnoceni = ?, doporuceni = ?, obrazek = ? WHERE id = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("sssssssi", $kapela_porovnani, $oblibene_skladby, $hudebni_zanr, $zazitek_koncert, $hodnoceni, $doporuceni, $obrazek, $id);
+        $stmt->bind_param("ssssssssi", $kapela_porovnani, $oblibene_skladby, $hudebni_zanr,$styl, $zazitek_koncert, $hodnoceni, $doporuceni, $obrazek, $id);
         return $stmt->execute();
     }
 }
@@ -31,10 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $kapela_porovnani = $_POST['kapela_porovnani'];
     $oblibene_skladby = $_POST['oblibene_skladby'];
     $hudebni_zanr = $_POST['hudebni_zanr'];
+    $styl = $_POST['styl'];
     $zazitek_koncert = $_POST['zazitek_koncert'];
     $hodnoceni = intval($_POST['hodnoceni']);
     $doporuceni = isset($_POST['doporuceni']) ? implode(", ", $_POST['doporuceni']) : "";
-    $obrazek = $_FILES['obrazek']['id'];
+    $obrazek = $_FILES['obrazek']['name'];
 
     if ($obrazek) {
         $target_dir = "uploads/";
@@ -45,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $obrazek = $koment['obrazek'];
     }
 
-    if ($comentModel->update($id, $kapela_porovnani, $oblibene_skladby, $hudebni_zanr, $zazitek_koncert, $hodnoceni, $doporuceni, $obrazek)) {
+    if ($comentModel->update($id, $kapela_porovnani, $oblibene_skladby, $hudebni_zanr,$styl, $zazitek_koncert, $hodnoceni, $doporuceni, $obrazek)) {
         header('Location: komentsEdit.php');
         exit;
     } else {
@@ -73,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/my-styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body class="bg-dark text-white-50">
     <div class="container">
@@ -98,6 +100,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <option value="klasicka" <?= $koment['hudebni_zanr'] == 'klasicka' ? 'selected' : '' ?>>Klasická</option>
                 </select>
             </div>
+                <label for="styl" class="form-label">Tvůj oblíbený styl:</label>
+                <select class="form-select" id="styl" name="styl">
+                    <?php
+                    $options = [];
+                    if ($koment['hudebni_zanr'] === 'rock') {
+                        $options = ['Hard Rock', 'Soft Rock', 'Alternative Rock'];
+                    } else if ($koment['hudebni_zanr'] === 'pop') {
+                        $options = ['Dance Pop', 'Pop Rock', 'Teen Pop'];
+                    } else if ($koment['hudebni_zanr'] === 'jazz') {
+                        $options = ['Smooth Jazz', 'Free Jazz', 'Bebop'];
+                    } else if ($koment['hudebni_zanr'] === 'elektronicka') {
+                        $options = ['House', 'Techno', 'Trance'];
+                    } else if ($koment['hudebni_zanr'] === 'klasicka') {
+                        $options = ['Symphony', 'Sonata', 'Concerto'];
+                    }
+
+                    foreach ($options as $option) {
+                        $selected = $koment['styl'] == $option ? 'selected' : '';
+                        echo "<option value=\"$option\" $selected>$option</option>";
+                    }
+                    ?>
+                </select>
             <div class="mb-3">
                 <label for="zazitek_koncert" class="form-label">Jak se ti líbil náš poslední koncert?</label>
                 <textarea class="form-control" id="zazitek_koncert" name="zazitek_koncert" rows="3"><?= htmlspecialchars($koment['zazitek_koncert']) ?></textarea>
@@ -128,5 +152,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit" class="btn btn-primary mb-3">Aktualizovat</button>
         </form>
     </div>
+    <script>
+    $(document).ready(function() {
+        $('#hudebni_zanr').change(function() {
+            var genre = $(this).val();
+            var options = [];
+            if (genre === 'rock') {
+                options = ['Hard Rock', 'Soft Rock', 'Alternative Rock'];
+            } else if (genre === 'pop') {
+                options = ['Dance Pop', 'Pop Rock', 'Teen Pop'];
+            } else if (genre === 'jazz') {
+                options = ['Smooth Jazz', 'Free Jazz', 'Bebop'];
+            } else if (genre === 'elektronicka') {
+                options = ['House', 'Techno', 'Trance'];
+            } else if (genre === 'klasicka') {
+                options = ['Symphony', 'Sonata', 'Concerto'];
+            }
+
+            var $styl = $('#styl');
+            $styl.empty();
+            $.each(options, function(index, option) {
+                $styl.append($('<option></option>').attr('value', option).text(option));
+            });
+        });
+    });
+    </script>
 </body>
 </html>

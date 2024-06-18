@@ -12,17 +12,17 @@ class Koment {
 
     // Metoda pro vložení nového uživatele do databáze
     
-    public function registerKoment($kapela_porovnani, $oblibene_skladby, $hudebni_zanr, $zazitek_koncert, $hodnoceni, $doporuceni_str, $obrazek) {
+     public function registerKoment($kapela_porovnani, $oblibene_skladby, $hudebni_zanr,$styl, $zazitek_koncert, $hodnoceni, $doporuceni_str, $obrazek) {
         // Připravení dotazu
-        $query = "INSERT INTO hodnoceni (kapela_porovnani, oblibene_skladby, hudebni_zanr, zazitek_koncert, hodnoceni, doporuceni, obrazek, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+        $query = "INSERT INTO hodnoceni (kapela_porovnani, oblibene_skladby, hudebni_zanr, styl, zazitek_koncert, hodnoceni, doporuceni, obrazek, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
     
         // Příprava a provedení dotazu
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ssssiss", $kapela_porovnani, $oblibene_skladby, $hudebni_zanr, $zazitek_koncert, $hodnoceni, $doporuceni_str, $obrazek);
+        $stmt->bind_param("sssssiss", $kapela_porovnani, $oblibene_skladby, $hudebni_zanr, $styl, $zazitek_koncert, $hodnoceni, $doporuceni_str, $obrazek);
     
         // Pokud se dotaz úspěšně provede, vrať TRUE, jinak FALSE
         return $stmt->execute();
-    }
+    } 
 }
 
 // Inicializace objektu koment s připojením k databázi
@@ -34,8 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kapela_porovnani = htmlspecialchars($_POST['kapela_porovnani']);
     $oblibene_skladby = htmlspecialchars($_POST['oblibene_skladby']);
     $hudebni_zanr = htmlspecialchars($_POST['hudebni_zanr']);
+    $styl = htmlspecialchars($_POST['styl']);
     $zazitek_koncert = htmlspecialchars($_POST['zazitek_koncert']);
     $hodnoceni = htmlspecialchars($_POST['hodnoceni']);
+    
     
     
     if (isset($_POST['doporuceni']) && is_array($_POST['doporuceni'])) {
@@ -58,11 +60,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Volání metody pro registraci uživatele
-    if ($koment->registerKoment($kapela_porovnani, $oblibene_skladby, $hudebni_zanr, $zazitek_koncert, $hodnoceni, $doporuceni_str, $obrazek)) {
+    if ($koment->registerKoment($kapela_porovnani, $oblibene_skladby, $hudebni_zanr,$styl, $zazitek_koncert, $hodnoceni, $doporuceni_str, $obrazek)) {
         $registrationMessage = "Komentář byl úspěšně uložen do DB.";
-    } else {
+    }  else {
         $registrationMessage = "Uložení komentáře selhalo.";
-    }
+    } 
 }
 ?>
 

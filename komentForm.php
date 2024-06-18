@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Uložení knihy</title>
+        <title>Uložení komentáře</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -39,7 +39,7 @@
                     <select class="form-select" id="hudebni_zanr" name="hudebni_zanr">
                         <option selected>Vyberte jednu z možností</option>
                         <option value="rock">Rock</option>
-                        <option value="pop">Pop</option>
+                        <option value="pop">Pop</option>    
                         <option value="jazz">Jazz</option>
                         <option value="elektronicka">Elektronická</option>
                         <option value="klasicka">Klasická</option>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="hodnoceni" class="form-label">Hodnocení (1-10):</label>
-                    <input type="number" class="form-control" id="hodnoceni" name="hodnoceni" min="1" max="10">
+                    <input type="number" class="form-control" id="hodnoceni" name="hodnoceni" min="1" max="10" value="10">
                 </div>
                 <div class="mb-3">
                     <label for="doporuceni" class="form-label">Komu bys nás doporučili?</label>
