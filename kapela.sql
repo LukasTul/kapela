@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Úte 18. čen 2024, 11:11
+-- Vytvořeno: Úte 18. čen 2024, 16:12
 -- Verze serveru: 10.4.32-MariaDB
 -- Verze PHP: 8.0.30
 
@@ -32,6 +32,7 @@ CREATE TABLE `hodnoceni` (
   `kapela_porovnani` varchar(255) NOT NULL,
   `oblibene_skladby` text NOT NULL,
   `hudebni_zanr` enum('rock','pop','jazz','elektronicka','klasicka') NOT NULL,
+  `styl` enum('Hard Rock','Soft Rock','Alternative Rock','Dance Pop','Pop Rock','Teen Pop','Smooth Jazz','Free Jazz','Bebop','House','Techno','Trance','Symphony','Sonata','Concerto') NOT NULL,
   `zazitek_koncert` text DEFAULT NULL,
   `hodnoceni` int(11) DEFAULT NULL CHECK (`hodnoceni` between 1 and 10),
   `doporuceni` varchar(255) DEFAULT NULL,
@@ -44,9 +45,11 @@ CREATE TABLE `hodnoceni` (
 -- Vypisuji data pro tabulku `hodnoceni`
 --
 
-INSERT INTO `hodnoceni` (`id`, `kapela_porovnani`, `oblibene_skladby`, `hudebni_zanr`, `zazitek_koncert`, `hodnoceni`, `doporuceni`, `obrazek`, `created_at`, `updated_at`) VALUES
-(16, 'Radiohead', 'Creep', 'jazz', 'Bylo to velmi zajímavé', 10, '', 'assets/img-koment/20240430_151754.jpg', '2024-06-12 13:45:31', '2024-06-12 13:45:31'),
-(17, 'Kabát', 'Malá dáma, Burlaci', 'elektronicka', 'Krásně', 9, 'přátelé,rodina,kolegové', 'assets/img-koment/20240430_151754.jpg', '2024-06-12 14:27:53', '2024-06-12 14:27:53');
+INSERT INTO `hodnoceni` (`id`, `kapela_porovnani`, `oblibene_skladby`, `hudebni_zanr`, `styl`, `zazitek_koncert`, `hodnoceni`, `doporuceni`, `obrazek`, `created_at`, `updated_at`) VALUES
+(16, 'Radiohead', 'Creep', 'rock', 'Hard Rock', 'Bylo to velmi zajímavé', 10, '', 'assets/img-koment/20240430_151754.jpg', '2024-06-12 13:45:31', '2024-06-18 13:30:34'),
+(17, 'Kabát', 'Malá dáma, Burlaci', 'elektronicka', '', 'Krásně', 9, 'přátelé, rodina, kolegové', 'assets/img-koment/20240430_151754.jpg', '2024-06-12 14:27:53', '2024-06-18 09:29:42'),
+(19, 'Queen', 'We will rock you, Killer Queen', 'jazz', 'Bebop', '', 10, 'přátelé,rodina', 'assets/img-koment/Neutopia baner (2).jpg', '2024-06-18 12:46:01', '2024-06-18 12:46:01'),
+(20, 'Tři sestry', 'To radši ne', 'jazz', 'Free Jazz', '', 10, 'přátelé,rodina', 'assets/img-koment/blade-runner-trees-blade-runner-2049-movies-wallpaper-preview.jpg', '2024-06-18 13:48:32', '2024-06-18 13:48:32');
 
 -- --------------------------------------------------------
 
@@ -102,7 +105,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pro tabulku `hodnoceni`
 --
 ALTER TABLE `hodnoceni`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pro tabulku `users`
